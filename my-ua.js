@@ -6,3 +6,4 @@ const uas = [
 ]
 
 module.exports.uas = uas
+

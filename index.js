@@ -3,10 +3,12 @@ const urls = require('./my-url')//携程链接数组
 const fs = require('fs')
 const Nightmare = require('nightmare')
 
+
 const getpoxy = require('./4.js').getPoxy;//getpoxy为动态获取代理ip获取失败是等待并再来一遍
 const uaList = uas.uas
 let urlArr =urls.urls
 let inx =0
+
 
 main(urlArr[inx])
 function main(url){

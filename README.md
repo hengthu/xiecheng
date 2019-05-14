@@ -1,11 +1,13 @@
 ## 携程爬虫2019 携程酒店信息爬虫
 
-![微信](./wx.jpg)"# xiecheng" 
+
 ```
 //下载nightmare库
 npm i nightmare
-//getpoxy 方法手动配置，用不到的手动修改
-
-//确保getpoxy无影响后 运行代码
+蓝后 会获取酒店价格信息存为html
 node index
 ```
+## index_poxy.js为实时获取代理，没代理等待新代理ip版本，欢迎加V互相探讨
+
+
+![微信](./wx.jpg)"# xiecheng" 

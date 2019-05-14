@@ -4,27 +4,26 @@ const fs = require('fs')
 const Nightmare = require('nightmare')
 
 
-//const getpoxy = require('./4.js').getPoxy;//getpoxy为动态获取代理ip获取失败是等待并再来一遍
+const getpoxy = require('./4.js').getPoxy;//getpoxy为动态获取代理ip获取失败是等待并再来一遍
 const uaList = uas.uas
 let urlArr =urls.urls
 let inx =0
 
 
-// main(urlArr[inx])
-// function main(url){
-//     getpoxy(v=>{
-//         if(v===null){
-//             setTimeout(()=>{
-//                 main(url)
-//             },1000)
-//             //1000毫秒后再来一次
-//         }else{
-//             getMainPage(url,v)
-//         }
-//     })
-// }
-getMainPage(urlArr[inx]);
-function getMainPage(url) {
+main(urlArr[inx])
+function main(url){
+    getpoxy(v=>{
+        if(v===null){
+            setTimeout(()=>{
+                main(url)
+            },1000)
+            //1000毫秒后再来一次
+        }else{
+            getMainPage(url,v)
+        }
+    })
+}
+function getMainPage(url,poxyurl) {
     let ua = uaList[Math.floor(Math.random() * uaList.length)]
 
     let tit = url.substring(url.indexOf("/hotel/")+7,url.indexOf(".html")+5)
@@ -63,7 +62,7 @@ function getMainPage(url) {
                     return
                 }else{
                     inx++
-                    getMainPage(urlArr[inx])
+                    main(urlArr[inx])
                 }
             })
         })
@@ -75,7 +74,7 @@ function getMainPage(url) {
                 return
             }else{
                 inx++
-                getMainPage(urlArr[inx])
+                main(urlArr[inx])
             }
         })
 }
